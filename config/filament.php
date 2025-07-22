@@ -1,5 +1,7 @@
 <?php
 
+use App\Providers\Filament\AdminPanelProvider;
+
 return [
     'vite_theme' => [
         'theme' => 'resources/css/filament/admin/theme.css',
@@ -7,6 +9,8 @@ return [
             'css/custom.css', // Path relatif ke public
         ],
     ],
+
+    
     /*
     |--------------------------------------------------------------------------
     | Broadcasting
@@ -88,6 +92,10 @@ return [
     | Livewire's standard 200ms delay.
     |
     */
+
+    'panel_providers' => [
+        AdminPanelProvider::class,
+    ],
 
     'livewire_loading_delay' => 'default',
 
