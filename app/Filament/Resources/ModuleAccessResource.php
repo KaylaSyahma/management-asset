@@ -17,7 +17,6 @@ class ModuleAccessResource extends Resource
 {
     protected static ?string $model = ModuleAccess::class;
     protected static ?string $navigationGroup = 'Module';
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
     {

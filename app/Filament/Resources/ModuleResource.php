@@ -19,7 +19,6 @@ class ModuleResource extends Resource
     protected static ?string $navigationGroup = 'Module';
     protected static ?string $navigationLabel = 'Module';
     protected static ?string $pluralModelLabel = 'Module';
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
     {
