@@ -3,34 +3,32 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
 
-class Employee extends Model
+class InventoryAsset extends Model
 {
-    use SoftDeletes;
-
-    protected $table = 'employees';
-
     protected $fillable = [
         'id',
-        'nip',
+        'asset_id',
         'name',
-        'join_date',
-        'company',
-        'department',
-        'position',
-        'status',
+        'category_id',
+        'image_url',
+        'ownership_status',
+        'owner_name',
+        'condition_id',
+        'purchase_price',
+        'purchase_date',
+        'brand_id',
+        'depreciation',
+        'residual_value',
+        'location_id',
+        'project_id',
+        'description',
         'created_by',
         'updated_by',
         'deleted_by',
     ];
 
-    protected $casts = [
-    'status' => 'boolean',
-    ];
-
-    // Relasi ke user
     public function creator()
     {
         return $this->belongsTo(User::class, 'created_by');

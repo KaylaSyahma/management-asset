@@ -6,20 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
 
-class Employee extends Model
+class Condition extends Model
 {
     use SoftDeletes;
-
-    protected $table = 'employees';
-
+    
     protected $fillable = [
-        'id',
-        'nip',
         'name',
-        'join_date',
-        'company',
-        'department',
-        'position',
         'status',
         'created_by',
         'updated_by',
@@ -27,10 +19,9 @@ class Employee extends Model
     ];
 
     protected $casts = [
-    'status' => 'boolean',
+        'status' => 'boolean',
     ];
 
-    // Relasi ke user
     public function creator()
     {
         return $this->belongsTo(User::class, 'created_by');

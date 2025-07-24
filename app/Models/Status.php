@@ -6,31 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
 
-class Employee extends Model
+class Status extends Model
 {
     use SoftDeletes;
 
-    protected $table = 'employees';
-
     protected $fillable = [
         'id',
-        'nip',
-        'name',
-        'join_date',
-        'company',
-        'department',
-        'position',
+        'asset_id',
         'status',
+        'status_date',
+        'status_value',
+        'description',
+        'document_path',
         'created_by',
         'updated_by',
         'deleted_by',
     ];
 
-    protected $casts = [
-    'status' => 'boolean',
-    ];
-
-    // Relasi ke user
     public function creator()
     {
         return $this->belongsTo(User::class, 'created_by');
@@ -48,4 +40,5 @@ class Employee extends Model
 
         return parent::delete(); // method delete bawaan Laravel untuk soft delete (isi deleted_at)
     }
+
 }
